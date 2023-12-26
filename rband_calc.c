@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 double rband_calc(char *Band1, char *Band2, char *Band3);
 
 int main(void){
 
-    char Band1[15];
-    char Band2[15];
-    char Band3[15];
+    char Band1[10];
+    char Band2[10];
+    char Band3[10];
     double Resistance;
 
     printf("Welcome to the Resistor Color Band Calculator!\n");
@@ -24,10 +25,44 @@ int main(void){
     fgets(Band3, sizeof(Band3), stdin);
     Band3[strlen(Band3) - 1] = '\0';
 
+    printf("\tBased on your bolor bands of: %s, %s, %s\n", Band1, Band2, Band3);
+    Resistance = rband_calc(Band1, Band2, Band3);
+    printf("\tYour resistance is %.2lf Ohms\n", Resistance);
+
     return 0;
 }
 
 double rband_calc(char *Band1, char *Band2, char *Band3){
     double rVal;
+    int N;
+    int i, pw;
+
+    //turn color to figure for band 1 and band 2
+    char colours[11] = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
+    for(i=0; i<10; i++){
+        if((strcmp(colours[i], Band1) == 0)){
+            N = i*10;
+            break;
+        }
+    }
+    for(i=0; i<10; i++){
+        if((strcmp(colours[i], Band2) == 0)){
+            N = N + i;
+            break;
+        }
+    }
+    rVal = (double) N;
+
+    //turn color to figure for band 3 and find the answer
+    for(i=0; i<10; i++){
+        if((strcmp(colours[i], Band3) == 0)){
+            pw = i;
+            rVal = pow(10,i) * rVal;
+            return rVal;
+        }
+    }
     
+    
+     
+
 }
