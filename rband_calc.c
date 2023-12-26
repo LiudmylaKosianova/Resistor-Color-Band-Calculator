@@ -11,23 +11,25 @@ int main(void){
     char Band3[10];
     double Resistance;
 
+    printf("\n");
     printf("Welcome to the Resistor Color Band Calculator!\n");
-    printf("\tPlease enter three color codes from left to right.\n");
-    printf("\tEnter your band 1 color:");
+    printf("\t\nPlease enter three color codes from left to right.\n");
+    printf("\tEnter your band 1 color: ");
     fgets(Band1, sizeof(Band1), stdin);
     Band1[strlen(Band1) - 1] = '\0';
 
-    printf("\tEnter your band 2 color:");
+    printf("\tEnter your band 2 color: ");
     fgets(Band2, sizeof(Band2), stdin);
     Band2[strlen(Band2) - 1] = '\0';
 
-    printf("\tEnter your band 3 color:");
+    printf("\tEnter your band 3 color: ");
     fgets(Band3, sizeof(Band3), stdin);
     Band3[strlen(Band3) - 1] = '\0';
 
-    printf("\tBased on your bolor bands of: %s, %s, %s\n", Band1, Band2, Band3);
+    printf("\n\tBased on your bolor bands of: %s, %s, %s\n", Band1, Band2, Band3);
     Resistance = rband_calc(Band1, Band2, Band3);
     printf("\tYour resistance is %.2lf Ohms\n", Resistance);
+    printf("\n");
 
     return 0;
 }
