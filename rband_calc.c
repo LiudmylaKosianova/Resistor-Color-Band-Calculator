@@ -35,17 +35,18 @@ int main(void){
 double rband_calc(char *Band1, char *Band2, char *Band3){
     double rVal;
     int N;
-    int i, pw;
+    int i;
 
     //turn color to figure for band 1 and band 2
-    char colours[11] = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
-    for(i=0; i<10; i++){
+    char *colours[] = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
+    int ma = sizeof(colours) / sizeof (colours[0]);
+    for(i=0; i<ma; i++){
         if((strcmp(colours[i], Band1) == 0)){
             N = i*10;
             break;
         }
     }
-    for(i=0; i<10; i++){
+    for(i=0; i<ma; i++){
         if((strcmp(colours[i], Band2) == 0)){
             N = N + i;
             break;
@@ -54,9 +55,9 @@ double rband_calc(char *Band1, char *Band2, char *Band3){
     rVal = (double) N;
 
     //turn color to figure for band 3 and find the answer
-    for(i=0; i<10; i++){
+    for(i=0; i<ma; i++){
         if((strcmp(colours[i], Band3) == 0)){
-            pw = i;
+            int pw = i;
             rVal = pow(10,i) * rVal;
             return rVal;
         }
