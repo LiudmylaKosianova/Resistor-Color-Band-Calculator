@@ -10,6 +10,6 @@ Resistors can be large enough so they contain marking - color bands - to indicat
 
 The output of the calculator for the color code "brown-black-red":
 
-![Alt text](<Screenshot from 2023-12-26 14-08-07.png>)
+![Alt text](<Screenshot from 2023-12-27 10-25-56.png>)
 
 
