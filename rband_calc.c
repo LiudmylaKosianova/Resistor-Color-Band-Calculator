@@ -13,8 +13,14 @@ int main(void){
 
     printf("\n");
     printf("Welcome to the Resistor Color Band Calculator!\n");
-    printf("\t\nPlease enter three color codes from left to right.\n");
-    printf("\tEnter your band 1 color: ");
+    printf("\nPlease, enter valid names of the color bands:\n");
+    char *colours[] = {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
+    int ma = sizeof(colours) / sizeof (colours[0]);
+    for(int i=0; i<ma-1; i++){
+        printf("%s, ", colours[i]);
+    }
+    printf("white\n");
+    printf("\n\tEnter your band 1 color: ");
     fgets(Band1, sizeof(Band1), stdin);
     Band1[strlen(Band1) - 1] = '\0';
 
